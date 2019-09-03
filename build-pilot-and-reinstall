@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -ex
+
+pushd ~/go/out/
+  rm -rf *
+popd
+
+pushd ~/go/src/istio.io/istio
+  make docker.pilot
+
+  docker push xanderstrike/pilot:dev
+
+  reinstall-istio
+popd

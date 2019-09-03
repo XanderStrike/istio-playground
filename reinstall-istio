@@ -1,0 +1,7 @@
+#!/bin/bash
+
+helm template install/kubernetes/helm/istio \
+  --name istio --namespace istio-system | kubectl delete -f -
+
+helm template install/kubernetes/helm/istio \
+  --name istio --namespace istio-system | kubectl apply -f -
