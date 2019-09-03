@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -ex
+
+kubectl logs --follow -n istio-system $(kubectl -n istio-system get pods -o custom-columns=:metadata.name | grep $1) $2
