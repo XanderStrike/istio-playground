@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -ex
+
+pushd ~/go/src/istio.io/istio
+  make istioctl-all
+  sudo cp ~/go/out/linux_amd64/release/istioctl-osx $(which istioctl)
+popd
+
+
